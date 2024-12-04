@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>McCode-Wadsworth - Python Calculations</title>
+    <link rel="stylesheet" href="../Assets/css/Homepage.css">
+</head>
+<body>
+    <header>
+        <h1>McCode-Wadsworth</h1>
+        <hr>
+    </header>
+    <div class="content-wrapper">
+        <!-- Left-hand Column -->
+        <aside class="sidebar">
+            <ul>
+                <!-- Main Categories: Top Programming Languages -->
+                <li><a href="Homepage.html" data-category="Home">Home</a></li>
+                <li><a href="#" data-category="AreaCalculations">Area Calculations</a></li>
+                <li><a href="#" data-category="MassCalculations">Mass Calculations</a></li>
+                <!-- Add more categories as needed if you plan to expand in the future -->
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Python Calculations Section -->
+            <section class="category-section" id="PythonCalculations">
+                <h2>Python Calculations</h2>
+                <div class="item-grid">
+                    <!-- Example 1: Calculate Area of a Circle -->
+                    <div class="item category-item" 
+                         data-code="import math
+
+def calculate_area(radius):
+    area = math.pi * radius ** 2
+    return area
+
+if __name__ == '__main__':
+    r = float(input('Enter the radius of the circle: '))
+    print(f'The area of the circle is {calculate_area(r)}')
+    
+# This script calculates the area of a circle given its radius.
+# It demonstrates the use of the math module, function definition, and user input." 
+                         data-info="Calculates the area of a circle using the radius provided by the user." 
+                         data-title="Calculate Area of a Circle">
+                        <div class="item-content">
+                            <h3>Calculate Area of a Circle</h3>
+                        </div>
+                    </div>
+
+                    <!-- Add more Python calculation items as needed -->
+                </div>
+            </section>
+
+            <!-- Mass Calculations Section -->
+            <section class="category-section" id="MassCalculations">
+                <h2>Mass Calculations</h2>
+                <div class="item-grid">
+                    <!-- Example 1: Calculate Mass from Density and Volume -->
+                    <div class="item category-item" 
+                         data-code="def calculate_mass(density, volume):
+    mass = density * volume
+    return mass
+
+if __name__ == '__main__':
+    d = float(input('Enter the density (kg/m³): '))
+    v = float(input('Enter the volume (m³): '))
+    print(f'The mass is {calculate_mass(d, v)} kg')
+    
+# This script calculates mass given density and volume.
+# It demonstrates basic arithmetic operations and function usage in Python." 
+                         data-info="Calculates mass based on user-provided density and volume." 
+                         data-title="Calculate Mass from Density and Volume">
+                        <div class="item-content">
+                            <h3>Calculate Mass from Density and Volume</h3>
+                        </div>
+                    </div>
+
+                    <!-- Add more Mass calculation items as needed -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Description</td>
+                        <td id="modal-description"></td>
+                    </tr>
+                    <tr>
+                        <td>Features</td>
+                        <td id="modal-features"></td>
+                    </tr>
+                    <tr>
+                        <td>Usage</td>
+                        <td id="modal-usage"></td>
+                    </tr>
+                    <tr>
+                        <td>Pricing</td>
+                        <td id="modal-pricing"></td>
+                    </tr>
+                    <tr>
+                        <td>Dependencies</td>
+                        <td id="modal-dependencies"></td>
+                    </tr>
+                    <tr>
+                        <td>Installation</td>
+                        <td id="modal-installation"></td>
+                    </tr>
+                    <tr>
+                        <td>Configuration</td>
+                        <td id="modal-configuration"></td>
+                    </tr>
+                    <tr>
+                        <td>Compatibility</td>
+                        <td id="modal-compatibility"></td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td id="modal-examples"></td>
+                    </tr>
+                    <tr>
+                        <td>Documentation</td>
+                        <td id="modal-documentation"></td>
+                    </tr>
+                    <tr>
+                        <td>Support</td>
+                        <td id="modal-support"></td>
+                    </tr>
+                    <tr>
+                        <td>License</td>
+                        <td id="modal-license"></td>
+                    </tr>
+                    <tr>
+                        <td>Version</td>
+                        <td id="modal-version"></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td id="modal-author"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="code-container">
+                <button id="copyModalCode" class="copy-btn">Copy</button>
+                <pre><code id="modal-code"></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Assets/js/Homepage.js"></script>
+</body>
+</html>
