@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "test@gmail.com",
+      "password": "test"
+    },
+    {
+      "id": "a9e2",
+      "email": "colin@gmail.com",
+      "password": "123"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "1",
+      "email": "test@gmail.com",
+      "autoRenewal": false,
+      "creditCardInfo": "",
+      "isActive": false,
+      "billingAddress": "",
+      "plan": "free"
+    },
+    {
+      "id": "1a1c",
+      "email": "colin@gmail.com",
+      "autoRenewal": false,
+      "creditCardInfo": "1234-1234-1234-1234",
+      "billingAddress": "Main",
+      "plan": "monthly",
+      "isActive": true,
+      "startDate": "2024-12-18",
+      "nextBillingDate": "2025-01-18"
+    }
+  ]
+}

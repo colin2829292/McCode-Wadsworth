@@ -1,0 +1,147 @@
+{
+  "Introduction to Chemical Engineering Thermodynamics": {
+    "Title": "Introduction to Chemical Engineering Thermodynamics",
+    "Edition": "9th Edition",
+    "Authors": "J.M. Smith; Michael Abbott, Mark Swihart Hendrick C. Van Ness",
+    "ISBN-13": "9781260597684",
+    "ISBN-10": "1260597687",
+    "Does the Code Correspond to the Book?": "Yes",
+    "Description": "Comprehensive coverage of the book with Python scripts, starting from examples in paragraphs, progressing through sections, chapters, parts, appendices, and extending to supplementary materials and beyond.",
+    "Features": "Easy to use. Simple navigation. Ready-to-run scripts. Minimal setup required. Clear documentation. Utilizes common Python libraries for functionality.",
+    "Usage": "Copy, paste, and execute in your Python IDE for immediate results.",
+    "Dependencies": "Required libraries specified at the top of each script for ease of setup, Python 3.8+,",
+    "Documentation": "<a href='../Assets/pdf/chemical-engineering/sample-documentation.pdf' target='_blank' class='pdf-link' download>Download PDF (Sample Documentation)</a>",
+    "Support": "Reach out via email or GitHub issue tracking for assistance or to report bugs.",
+    "Pricing": "Free",
+    "Additional Notes": "This library is a work in progress, with updates and additions being made to ensure full coverage and user satisfaction.",
+    "Last Comprehensive Update": "2024-12-15",
+    "Keywords": "Thermodynamics, Heat, Gibbs Free Energy",
+    "Group": "Thermodynamics",
+    "Code": [
+      {
+        "language": "Python",
+        "code": "This code is for Chapter 3: Volumetric Properties of Pure Fluids"
+      }    
+    ],
+    "photoUrls": [
+      "../Assets/Images/Modal/A1.png",
+      "../Assets/Images/Modal/A2.png"
+    ]
+  },
+
+  "Chemical, Biochemical, and Engineering Thermodynamics": {
+    "Title": "Chemical, Biochemical, and Engineering Thermodynamics",
+    "Edition": "Coming Soon",
+    "Authors": "Coming Soon",
+    "ISBN-13": "Coming Soon",
+    "ISBN-10": "Coming Soon",
+    "Does the Code Correspond to the Book?": "Coming Soon",
+    "Description": "Coming Soon",
+    "Features": "Coming Soon",
+    "Usage": "Coming Soon",
+    "Dependencies": "Coming Soon",
+    "Documentation": "Coming Soon",
+    "Support": "Coming Soon",
+    "Pricing": "Coming Soon",
+    "Additional Notes": "Coming Soon",
+    "Last Comprehensive Update": "Coming Soon",
+    "Keywords": "Coming Soon",
+    "Group": "Coming Soon",
+    "Code": [
+      {
+        "language": "Python",
+        "code": "Coming Soon"
+      }    
+    ]
+  },
+
+"Molecular Thermodynamics of Fluid-Phase Equilibria": {
+    "Title": "Molecular Thermodynamics of Fluid-Phase Equilibria",
+    "Edition": "Coming Soon",
+    "Authors": "Coming Soon",
+    "ISBN-13": "Coming Soon",
+    "ISBN-10": "Coming Soon",
+    "Does the Code Correspond to the Book?": "Coming Soon",
+    "Description": "Coming Soon",
+    "Features": "Coming Soon",
+    "Usage": "Coming Soon",
+    "Dependencies": "Coming Soon",
+    "Documentation": "Coming Soon",
+    "Support": "Coming Soon",
+    "Pricing": "Coming Soon",
+    "Additional Notes": "Coming Soon",
+    "Last Comprehensive Update": "Coming Soon",
+    "Keywords": "Coming Soon",
+    "Group": "Coming Soon",
+    "Code": [
+      {
+        "language": "Python",
+        "code": "Coming Soon"
+      }    
+    ]
+  },
+
+"This Is A Sample To Show Scalability": {
+    "Title": "This Is A Sample To Show Scalability",
+    "Edition": "This Is Sample Text",
+    "Authors": "This Is Sample Text",
+    "ISBN-13": "This Is Sample Text",
+    "ISBN-10": "This Is Sample Text",
+    "Does the Code Correspond to the Book?": "This Is Sample Text",
+    "Description": "This Is Sample Text",
+    "Features": "This Is Sample Text",
+    "Usage": "This Is Sample Text",
+    "Dependencies": "This Is Sample Text",
+    "Documentation": "This Is Sample Text, <a href='../Assets/pdf/chemical-engineering/sample-documentation.pdf' target='_blank' class='pdf-link' download>Download PDF (Sample Documentation)</a>",
+    "Support": "This Is Sample Text",
+    "Pricing": "This Is Sample Text",
+    "Additional Notes": "This Is Sample Text",
+    "Last Comprehensive Update": "This Is Sample Text",
+    "This Is A Sample To Show Scalability 1": "Scale 1",
+    "This Is A Sample To Show Scalability 2": "Scale 2",
+    "This Is A Sample To Show Scalability 3": "Scale 3",
+    "Keywords": "Scale 1, Scale 2, Scale 3",
+    "Group": "Group 1",
+    "Code": [
+      {
+        "language": "Python",
+        "code": "This Is A Sample To Show Scalability 1 - This is Long to show you that we can scroll through the code left and right, down to the bottom if needed. \n\n# The following content demonstrates extreme vertical scalability. \n# Line 1: Introduction to scalability.\ndef vertical_scalability_demo():\n    print(\"Starting the vertical scalability demonstration.\")\n\n# Line 2: Adding a loop with extended content.\nfor i in range(10):\n    print(f\"This is line number {i+1} of the vertical scalability demo.\")\n\n# Line 3: Simulating extended functionality.\ndata = [x**2 for x in range(50)]\nprint(\"Processed data:\", data)\n\n# Line 4: Expanding with a longer function.\ndef perform_calculations():\n    results = []\n    for x in range(1, 101):\n        results.append(x * 10)\n    print(\"Results:\", results)\n\n# Line 5: Adding multi-line strings to extend vertically.\nlong_string = \"\"\"\nThis is a long multiline string. It spans several lines to demonstrate how the \ncode box can handle extended vertical content without rearranging or corrupting \nits structure. This ensures readability and usability, no matter how extensive \nthe content becomes.\n\"\"\"\nprint(long_string)\n\n# Line 6: Adding nested blocks for complexity.\ndef nested_blocks():\n    for i in range(5):\n        print(f\"Outer loop iteration {i+1}\")\n        for j in range(3):\n            print(f\"   Inner loop iteration {j+1}\")\n\n# Line 7: Extending with error handling for completeness.\ntry:\n    print(\"Simulating an error-prone process.\")\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Handled division by zero error gracefully.\")\n\n# Line 8: Demonstrating additional scalability.\nfor k in range(20):\n    print(f\"Line {k+1}: Extending vertically with even more content.\")\n\n# Line 9: Wrapping up the vertical scalability demo.\nif __name__ == \"__main__\":\n    vertical_scalability_demo()\n    perform_calculations()\n    nested_blocks()\n    print(\"Vertical scalability demo successfully completed. Box handles all structures seamlessly.\")"
+    },       
+    {
+      "language": "HTML",
+      "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p>This Is A Sample To Show Scalability 2</p>\n  </body>\n</html>"
+  },
+  {
+      "language": "CSS",
+      "code": "/* This Is A Sample To Show Scalability 3 */\nbody {\n  content: \"This Is A Sample To Show Scalability 3\";\n  font-size: 16px;\n  color: black;\n}"
+  },
+  {
+      "language": "C++",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"This Is A Sample To Show Scalability 4\" << endl;\n    return 0;\n}"
+  },
+  {
+      "language": "Haskell",
+      "code": "main :: IO ()\nmain = putStrLn \"This Is A Sample To Show Scalability 5\""
+  }
+],
+    "photoUrls": [
+    "../Assets/Images/Modal/white.webp",
+    "../Assets/Images/Modal/black.webp",
+    "../Assets/Images/Modal/red.webp",
+    "../Assets/Images/Modal/orange.webp",
+    "../Assets/Images/Modal/yellow.webp",
+    "../Assets/Images/Modal/green.webp",
+    "../Assets/Images/Modal/blue.webp",
+    "../Assets/Images/Modal/indigo.webp",
+    "../Assets/Images/Modal/violet.webp",
+    "../Assets/Images/Modal/1.webp",
+    "../Assets/Images/Modal/2.webp",
+    "../Assets/Images/Modal/3.webp",
+    "../Assets/Images/Modal/4.webp"
+]
+  }
+
+}
+
+
+
