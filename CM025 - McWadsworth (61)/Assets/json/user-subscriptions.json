@@ -1,9 +1,0 @@
-
-{
-    "test@example.com": {
-      "autoRenewal": true,
-      "creditCardInfo": "1111-2222-3333-4444",
-      "isActive": true
-    }
-  }
-  
