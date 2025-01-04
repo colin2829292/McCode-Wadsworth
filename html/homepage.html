@@ -18,7 +18,7 @@
     <header>
         <h1 class="site-title">McCode-Wadsworth</h1>
         <div class="login-wrapper">
-            <button id="loginBtn" class="login-button">Log in</button>
+            <a href="subscription-manage-account.html" class="login-button" id="loginBtn">Account</a>
         </div>
         <hr>
     </header>
@@ -577,59 +577,6 @@
         </main>
     </div>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            
-            <!-- Log in Form -->
-            <div id="loginForm">
-                <h2>Log in</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="loginPassword" placeholder="Password" required>
-                            <span class="show-password" style="cursor: pointer; color: blue;">show</span>
-                        </div>
-                    </div>
-                    <div class="form-options">
-                        <div>
-                            <input type="checkbox" id="stayLoggedIn">
-                            <label for="stayLoggedIn">Stay logged in</label>
-                        </div>
-                        <a href="#" id="resetPassword" class="reset-password">Reset Password</a>
-                    </div>
-                    <button type="submit" class="login-btn">Log in</button>
-                    <button type="button" class="create-account-btn" id="showCreateForm">Create account</button>
-                </form>
-            </div>
-    
-            <!-- Create Account Form -->
-            <div id="createAccountForm" style="display: none;">
-                <h2>Create an Account</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="newEmail">Email</label>
-                        <input type="email" id="newEmail" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="newPassword">Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="newPassword" placeholder="Password" required>
-                            <span class="show-password" style="cursor: pointer; color: blue;">show</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="login-btn">Create Account</button>
-                    <button type="button" class="create-account-btn" id="showLoginForm">Back to Log in</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
     <script src="../Assets/js/subscription.js"></script>
 
 </body>

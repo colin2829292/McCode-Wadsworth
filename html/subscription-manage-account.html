@@ -1,137 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Account</title>
-    <link rel="stylesheet" href="../Assets/css/subscription-manage-account.css">
-    <link rel="icon" href="../Assets/images/favicon.ico" type="image/x-icon">
-    <!-- PayPal SDK (Replace YOUR_PAYPAL_CLIENT_ID with your actual client ID) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Account</title>
+  <!-- Link to your final CSS -->
+  <link rel="stylesheet" href="../Assets/css/subscription-manage-account.css">
 </head>
-
 <body class="dark-mode">
-
+  
     <header>
         <h1 class="site-title">Manage Account</h1>
         <div class="home-button-container">
-            <div class="home-category-item">
-                <a href="homepage.html" class="home-link">
-                    <h3>Home</h3>
-                </a>
-            </div>
+            <a href="homepage.html" class="home-category-item">
+                <h3>HOME</h3>
+            </a>
         </div>
     </header>
     
-    <main>
-        <section class="account-section">
-            
-            <!-- Top Information Table -->
-            <div class="account-container top-info-box">
-                <table>
-                    <tr>
-                        <td><strong>Subscription Status</strong></td>
-                        <td id="subscriptionStatus" class="status-red">Free Plan (Default)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Automatic Renewal</strong></td>
-                        <td id="renewalStatus">Auto-Renewal is Off</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" id="infoMessage">
-                            You currently do not have a subscription. Choose a Monthly or Yearly subscription to access premium content.
-                        </td>
-                    </tr>
-                </table>
-            </div>
+  <main>
 
-            <!-- Editable Table -->
-            <div class="account-container subscription-edit-box">
-                <table>
-                    <tr>
-                        <td><strong>Email</strong></td>
-                        <td><span id="userEmailDisplay"></span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Subscription</strong></td>
-                        <td>
-                            <div class="subscription-plans">
-                                <label class="plan-option">
-                                    <input type="radio" name="subscriptionPlan" value="free" checked> Free
-                                </label>
-                                <label class="plan-option">
-                                    <input type="radio" name="subscriptionPlan" value="monthly" id="monthlyPlan"> Monthly - $4.99/month
-                                </label>
-                                <label class="plan-option">
-                                    <input type="radio" name="subscriptionPlan" value="yearly" id="yearlyPlan"> Yearly - $19.99/year
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Automatic Renewal</strong></td>
-                        <td>
-                            <div class="subscription-plans">
-                                <!-- Use data attributes or IDs for toggling auto-renewal -->
-                                <label class="plan-option">
-                                    <input type="radio" name="automaticRenewal" value="on" id="autoRenewalOn"> On
-                                </label>
-                                <label class="plan-option">
-                                    <input type="radio" name="automaticRenewal" value="off" id="autoRenewalOff" checked> Off
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- PayPal Button Container: Shown when monthly/yearly is selected -->
-                    <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <div id="paypal-button-container" style="display:none; margin-top: 20px;"></div>
-                            <button class="complete-subscription-btn" onclick="handleSubscriptionChange()">Update Subscription</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+    <!-- "MESSAGE TABLE" at the top with four rows (Logged In, Subscription Status, Auto Renew, Message) -->
+    <div class="account-container" style="margin: 0 auto; max-width: 800px;">
+      <table id="topInfoTable" style="width: 100%;">
+        <tbody>
+          <!-- 1) Logged in as [email] -->
+          <tr id="loggedInAsRow">
+            <td style="width: 30%;"><strong>Logged In As</strong></td>
+            <td id="loggedInAsValue">Not Logged In Yet</td>
+          </tr>
+          
+          <!-- 2) Subscription Status -->
+          <tr id="topSubscriptionStatusRow">
+            <td><strong>Subscription Status</strong></td>
+            <td id="topSubscriptionStatus" class="status-red">N/A</td>
+          </tr>
 
-            <!-- Change Password Table -->
-            <div class="account-container password-change-box">
-                <table>
-                    <tr>
-                        <td><strong>Current Password</strong></td>
-                        <td><input type="password" id="currentPassword" placeholder="Enter current password"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>New Password</strong></td>
-                        <td><input type="password" id="newPassword" placeholder="Enter new password"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Confirm Password</strong></td>
-                        <td><input type="password" id="confirmPassword" placeholder="Confirm new password"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <button class="change-password-btn" onclick="changePassword()">Change Password</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            
-        </section>
-    </main>
+          <!-- 3) Automatic Renewal -->
+          <tr id="topAutoRenewalRow">
+            <td><strong>Automatic Renewal</strong></td>
+            <td id="topAutoRenewalStatus">N/A</td>
+          </tr>
 
-    <footer class="site-footer">
-        <p>&copy; 2024 McCode-Wadsworth. All rights reserved.</p>
-    </footer>
-
-    <!-- Subscription Modal for Feedback -->
-    <div id="subscriptionModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeSubscriptionModal()">&times;</span>
-            <div id="subscriptionModalMessage"></div>
-        </div>
+          <!-- 4) Message (e.g. “You are on the Free Plan...”) -->
+          <tr id="topMessageRow">
+            <td colspan="2" id="topMessage" style="text-align: left; color: var(--color-text-secondary);">
+              <!-- Dynamically updated via JS -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <script src="../Assets/js/modal.js"></script>
-    <script src="../Assets/js/subscription.js"></script>
+    <!-- BOTTOM TABLE (login / subscription mgmt / password change, etc.) -->
+    <div class="account-container" style="margin: 30px auto; max-width: 800px;">
+      <table id="accountTable" style="width: 100%;">
+        <tbody>
 
+          <!-- ROWS FOR LOGIN -->
+          <tr id="loginRowTitle" style="display: none;">
+            <td><strong>Log In</strong></td>
+            <td></td>
+          </tr>
+          <tr id="loginRowEmail" style="display: none;">
+            <td>Email</td>
+            <td>
+              <input type="email" id="loginEmail" placeholder="Email" required>
+            </td>
+          </tr>
+          <tr id="loginRowPassword" style="display: none;">
+            <td>Password</td>
+            <td>
+              <div class="password-wrapper">
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <span class="show-password" style="cursor: pointer; color: rgb(255, 255, 255);">show</span>
+              </div>
+            </td>
+          </tr>
+          <tr id="loginRowOptions" style="display: none;">
+            <td>Options</td>
+            <td>
+              <input type="checkbox" id="stayLoggedIn" />
+              <label for="stayLoggedIn">Stay Logged In</label>
+              &nbsp; | &nbsp;
+              <a href="#" id="resetPassword" class="reset-password">Reset Password</a>
+            </td>
+          </tr>
+          <tr id="loginRowButtons" style="display: none;">
+            <td colspan="2" style="text-align: center;">
+              <button id="loginBtnTable" class="login-btn">Log In</button>
+              <button type="button" class="create-account-btn" id="showCreateAccountRowBtn">Create Account</button>
+            </td>
+          </tr>
+
+          <!-- ROWS FOR CREATE ACCOUNT -->
+          <tr id="createAccountRowTitle" style="display: none;">
+            <td><strong>Create An Account</strong></td>
+            <td></td>
+          </tr>
+          <tr id="createAccountRowEmail" style="display: none;">
+            <td>Email</td>
+            <td>
+              <input type="email" id="newEmail" placeholder="Email" required>
+            </td>
+          </tr>
+          <tr id="createAccountRowPassword" style="display: none;">
+            <td>Password</td>
+            <td>
+              <div class="password-wrapper">
+                <input type="password" id="newPassword" placeholder="Password" required>
+                <span class="show-password" style="cursor: pointer; color: rgb(255, 255, 255);">show</span>
+              </div>
+            </td>
+          </tr>
+          <tr id="createAccountRowButtons" style="display: none;">
+            <td colspan="2" style="text-align: center;">
+              <button id="createAccountBtn" class="login-btn">Create Account</button>
+              <button type="button" class="create-account-btn" id="backToLoginBtn">Back To Log In</button>
+            </td>
+          </tr>
+
+          <!-- ROWS FOR SUBSCRIPTION PLAN SELECTION -->
+          <tr id="subscriptionPlanRow" style="display: none;">
+            <td><strong>Subscription</strong></td>
+            <td>
+              <div class="subscription-plans">
+                <label class="plan-option">
+                  <input type="radio" name="subscriptionPlan" value="free" checked> Free
+                </label>
+                <label class="plan-option">
+                  <input type="radio" name="subscriptionPlan" value="monthly" id="monthlyPlan"> Monthly - $4.99/month
+                </label>
+                <label class="plan-option">
+                  <input type="radio" name="subscriptionPlan" value="yearly" id="yearlyPlan"> Yearly - $19.99/year
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr id="autoRenewalRow" style="display: none;">
+            <td><strong>Automatic Renewal</strong></td>
+            <td>
+              <div class="subscription-plans">
+                <label class="plan-option">
+                  <input type="radio" name="automaticRenewal" value="on" id="autoRenewalOn"> On
+                </label>
+                <label class="plan-option">
+                  <input type="radio" name="automaticRenewal" value="off" id="autoRenewalOff" checked> Off
+                </label>
+              </div>
+            </td>
+          </tr>
+
+          <!-- NEW ROW: "Update Subscription" BUTTON -->
+          <tr id="subscriptionUpdateRow" style="display: none;">
+            <td colspan="2" style="text-align: center;">
+              <button class="complete-subscription-btn" onclick="handleSubscriptionChange()">Update Subscription</button>
+            </td>
+          </tr>
+
+          <!-- ROWS FOR CHANGE PASSWORD -->
+          <tr id="changePasswordTitleRow" style="display: none;">
+<!--
+<td><strong>Change Password</strong></td>
+<td></td>
+</tr>
+-->
+
+          <tr id="currentPasswordRow" style="display: none;">
+            <td>Current Password</td>
+            <td><input type="password" id="currentPassword" placeholder="Enter current password"></td>
+          </tr>
+          <tr id="newPasswordRow" style="display: none;">
+            <td>New Password</td>
+            <td><input type="password" id="userNewPassword" placeholder="Enter new password"></td>
+          </tr>
+          <tr id="confirmPasswordRow" style="display: none;">
+            <td>Confirm Password</td>
+            <td><input type="password" id="confirmPassword" placeholder="Confirm new password"></td>
+          </tr>
+          <tr id="changePasswordBtnRow" style="display: none;">
+            <td colspan="2" style="text-align: center;">
+              <button class="change-password-btn" onclick="changePassword()">Change Password</button>
+            </td>
+          </tr>
+
+          <!-- ROW FOR LOGOUT BUTTON -->
+          <tr id="logoutRow" style="display: none;">
+            <td colspan="2" style="text-align: center;">
+              <button id="logoutBtn" class="logout-button">Log Out</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2024 McCode-Wadsworth. All rights reserved.</p>
+  </footer>
+
+  <!-- Subscription Modal for Feedback -->
+  <div id="subscriptionModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeSubscriptionModal()">&times;</span>
+      <div id="subscriptionModalMessage"></div>
+    </div>
+  </div>
+
+  <script src="../Assets/js/subscription.js"></script>
 </body>
 </html>
