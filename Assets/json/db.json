@@ -1,36 +1,20 @@
 {
   "users": [
     {
-      "id": "1",
-      "email": "test@gmail.com",
-      "password": "test"
-    },
-    {
-      "id": "a9e2",
-      "email": "colin@gmail.com",
-      "password": "123"
+      "id": "e07a",
+      "email": "1@gmail.com",
+      "password": "1"
     }
   ],
   "subscriptions": [
     {
-      "id": "1",
-      "email": "test@gmail.com",
-      "autoRenewal": false,
-      "creditCardInfo": "",
-      "isActive": false,
-      "billingAddress": "",
-      "plan": "free"
-    },
-    {
-      "id": "1a1c",
-      "email": "colin@gmail.com",
-      "autoRenewal": false,
-      "creditCardInfo": "1234-1234-1234-1234",
-      "billingAddress": "Main",
-      "plan": "monthly",
+      "id": "1ed2",
+      "email": "1@gmail.com",
+      "autoRenewal": true,
+      "plan": "yearly",
       "isActive": true,
-      "startDate": "2024-12-18",
-      "nextBillingDate": "2025-01-18"
+      "startDate": "2025-01-04",
+      "nextBillingDate": "2026-01-04"
     }
   ]
 }

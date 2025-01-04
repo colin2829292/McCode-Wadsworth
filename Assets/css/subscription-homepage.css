@@ -1,172 +1,8 @@
-/* Modal overlay */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal content */
-.modal-content {
-    background-color: #1e1e1e; /* Dark gray modal background */
-    padding: 20px 30px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Subtle light shadow */
-    color: #f5f5f5; /* Light text color */
-}
-
-/* Modal header and close button */
-.modal-content h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #e0e0e0; /* Light gray header */
-    text-align: center;
-}
-
-.modal-content .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #999; /* Neutral gray close button */
-    cursor: pointer;
-}
-
-.modal-content .close:hover {
-    color: #fff; /* White on hover */
-}
-
-/* Form styling inside the modal */
-.modal-content .form-group {
-    margin-bottom: 15px;
-}
-
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #cccccc; /* Softer gray for labels */
-}
-
-.modal-content input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #444; /* Dark border for input */
-    border-radius: 5px;
-    background-color: #1e1e1e; /* Dark input background */
-    color: #e0e0e0; /* Light text for readability */
-}
-
-.modal-content input[type="email"],
-.modal-content input[type="password"] {
-    width: 100%;
-    padding: 12px; /* Consistent padding */
-    font-size: 14px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #2c2c2c; /* Consistent background color */
-    color: #e0e0e0; /* Consistent text color */
-    box-sizing: border-box; /* Ensures width includes padding and borders */
-}
-
-.password-wrapper {
-    position: relative;
-}
-
-.show-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    color: #cccccc; /* Subtle gray for show-password text */
-    cursor: pointer;
-}
-
-/* Form options */
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.form-options a {
-    color: #cccccc; /* Softer gray for links */
-    text-decoration: none;
-}
-
-.form-options a:hover {
-    text-decoration: underline;
-    color: #f5f5f5; /* Brighter hover color */
-}
-
-/* Buttons */
-.login-btn, .create-account-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.login-btn {
-    background-color: #333; /* Dark gray button */
-    color: #f5f5f5; /* Light text */
-    border: none;
-}
-
-.login-btn:hover {
-    background-color: #444; /* Slightly lighter gray on hover */
-    color: #fff; /* Bright white text */
-}
-
-.create-account-btn {
-    background-color: transparent;
-    color: #f5f5f5; /* Light gray text */
-    border: 2px solid #444; /* Dark gray border */
-}
-
-.create-account-btn:hover {
-    background-color: #444; /* Darker gray background */
-    color: white; /* Bright text on hover */
-}
-
-/* Style for the Manage Account button */
-.manage-account-button {
-    background-color: #4625ff; /* Same green as login button */
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 8px;
-    transition: background-color 0.3s;
-    margin-left: 10px; /* Space between buttons */
-    font-weight: bold;
-}
-
-/* Hover effect for the Manage Account button */
-.manage-account-button:hover {
-    background-color: #5812d1; /* Darker green on hover */
-}
 
 /* Login button in the header */
 .login-wrapper {
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 20px;
     display: flex; /* Align elements horizontally */
     align-items: center; /* Center vertically */
@@ -190,37 +26,44 @@
 
 /* Style for the Log in button */
 .login-button {
-    background: linear-gradient(135deg, #1E90FF, #00BFFF); /* Calming blue gradient for trust */
-    color: #ffffff; /* Clean white text for contrast */
-    border: 2px solid #FF8C00; /* Orange border for excitement and action */
-    width: 70px;
+    width: 70px; /* Square dimensions for the button */
     height: 70px;
-    margin-top: 15px;
-    border-radius: 12px; /* Smooth edges for approachability */
-    cursor: pointer;
-    font-size: 16px;
+    background: linear-gradient(45deg, #4b3f72, #6a5acd, #87ceeb); /* Soft purple to sky blue gradient */
+    background-size: 200% 200%; /* Prepares for animation */
+    border: 2px solid #6a5acd; /* Medium slate blue border for subtle elegance */
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: transform 0.1s ease, background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Arial', sans-serif;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    cursor: pointer; /* Makes it clear that the box is clickable */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(106, 90, 205, 0.6); /* Subtle purple-blue glow */
+    font-size: 14px;
+    color: #ffffff; /* Clean white text for contrast */
     font-weight: bold;
-    box-shadow: 0px 4px 8px rgba(30, 144, 255, 0.4); /* Subtle trust-inducing blue shadow */
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transitions for confidence */
+    text-decoration: none; /* Ensures no underline */
 }
 
 /* Hover effect for the Log in button */
 .login-button:hover {
-    background: linear-gradient(135deg, #FF8C00, #FF6347); /* Bright orange gradient for energy */
-    color: #ffffff;
-    border-color: #FF4500; /* Stronger orange for urgency */
-    box-shadow: 0px 6px 12px rgba(255, 140, 0, 0.6); /* Vibrant shadow to intensify action */
-    transform: scale(1.1); /* Slight zoom to draw attention */
+    background: linear-gradient(45deg, #6a5acd, #87ceeb, #b0e0e6); /* Brighter purple-blue gradient */
+    border-color: #87ceeb; /* Sky blue border */
+    box-shadow: 0 6px 12px rgba(135, 206, 235, 0.7); /* Enhanced glowing effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    animation: hover-glow 4s ease infinite; /* Subtle continuous gradient animation */
 }
 
-/* Focus (optional): Adds confidence and accessibility */
-.login-button:focus {
-    outline: none; /* Removes default outline */
-    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.5); /* Accessible focus ring in orange */
+/* Active (click) effect for the Log in button */
+.login-button:active {
+    transform: scale(0.95); /* Slight scale down for click effect */
+}
+
+/* Optional hover-glow animation */
+@keyframes hover-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .logout-button {

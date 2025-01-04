@@ -1,7 +1,6 @@
 /* ----------------------------------------------------------------------------- */
 /* CSS Variables */
 /* ----------------------------------------------------------------------------- */
-
 :root {
     /* Colors */
     --color-background: #121212; /* Very Dark Gray */
@@ -43,10 +42,13 @@
     --shadow-box: 0 3px 10px rgba(0, 0, 0, 0.2); /* Subtle Box Shadow */
 }
 
+#topSubscriptionStatus.status-red {
+    color: #ff0000
+  }
+  
 /* ----------------------------------------------------------------------------- */
 /* Base Styles */
 /* ----------------------------------------------------------------------------- */
-
 * {
     box-sizing: border-box;
 }
@@ -80,7 +82,6 @@ input, button, select, textarea {
 /* ----------------------------------------------------------------------------- */
 /* Header Styles */
 /* ----------------------------------------------------------------------------- */
-
 header {
     position: relative;
     background-color: var(--color-background);
@@ -102,45 +103,60 @@ header h1 {
     transform: translateY(-50%);
 }
 
+/* Home Button Styles */
 .home-category-item {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(45deg, #4a90e2, #5a9bf5, #4a90e2); /* Gradient */
-    background-size: 200% 200%;
-    border: 2px solid var(--color-white);
-    border-radius: 50%;
-    transition: transform 0.2s ease, box-shadow 0.3s, background 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    width: 60px; /* Square dimensions for the button */
+    height: 60px;
+    background: linear-gradient(45deg, #4b3f72, #6a5acd, #87ceeb); /* Soft purple to sky blue gradient */
+    background-size: 200% 200%; /* Prepares for animation */
+    border: 2px solid #6a5acd; /* Medium slate blue border for subtle elegance */
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: transform 0.1s ease, background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    display: flex; /* Centers content horizontally and vertically */
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; /* Pointer cursor for clickable elements */
     overflow: hidden;
-    box-shadow: var(--shadow-light);
-    font-size: 12px;
-    color: var(--color-white);
-    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(106, 90, 205, 0.6); /* Subtle purple-blue glow */
+    font-size: 10px; /* Default text size for buttons */
+    color: #ffffff; /* Clean white text for contrast */
 }
 
+/* Hover effect for Home Button */
 .home-category-item:hover {
-    background: linear-gradient(45deg, #5a9bf5, #4a90e2, #357ab8); /* Hover Gradient */
-    box-shadow: var(--shadow-hover);
-    transform: scale(1.1);
+    background: linear-gradient(45deg, #6a5acd, #87ceeb, #b0e0e6); /* Brighter purple-blue gradient */
+    border-color: #87ceeb; /* Sky blue border */
+    box-shadow: 0 6px 12px rgba(135, 206, 235, 0.7); /* Enhanced glowing effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    animation: hover-glow 4s ease infinite; /* Subtle continuous gradient animation */
 }
 
+/* Active (click) effect for Home Button */
 .home-category-item:active {
-    transform: scale(0.95);
+    transform: scale(0.95); /* Slight scale down for click effect */
 }
 
-.home-link h3 {
-    font-size: 10px;
-    margin: 0;
-    text-transform: uppercase;
+/* Hover-glow animation */
+@keyframes hover-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Styles for Home Link inside the Button */
+.home-link {
+    display: flex; /* Ensures the link fills the box */
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    width: 100%; /* Covers the full button */
+    height: 100%; /* Covers the full button */
+    text-decoration: none; /* Removes underline */
+    color: #ffffff; /* Ensures the text remains white */
 }
 
 /* ----------------------------------------------------------------------------- */
 /* Main Content Styles */
 /* ----------------------------------------------------------------------------- */
-
 main {
     padding: var(--spacing-large);
 }
@@ -157,31 +173,86 @@ main {
     gap: var(--spacing-large);
 }
 
+/* ----------------------------------------------------------------------------- */
+/* TOP INFO TABLE */
+/* ----------------------------------------------------------------------------- */
 .account-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-medium);
-    background-color: #1a1a1a; /* Slightly Lighter Dark Background */
+    background-color: #1a1a1a; /* Slightly lighter dark background */
     padding: var(--spacing-large);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-box);
+    margin: 0 auto;
+    max-width: 800px;
+    margin-bottom: var(--spacing-large);
 }
 
-.account-container table {
+/* Top Info Table (optional symmetrical layout: 30% / 70%) */
+#topInfoTable {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
-.account-container td {
+#topInfoTable td {
     padding: var(--spacing-small);
-    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
 }
 
-.account-container strong {
-    color: var(--color-white);
+#topInfoTable tr:last-child td {
+    border-bottom: none;
 }
 
+#topInfoTable td:nth-child(1) {
+    width: 30%;
+    text-align: left; /* change from right to left */
+    font-weight: bold;
+    padding-right: var(--spacing-medium);
+}
+#topInfoTable td:nth-child(2) {
+    width: 70%;
+    text-align: left; /* keep or ensure it's left-aligned */
+    padding-left: var(--spacing-medium);
+}
+
+/* ----------------------------------------------------------------------------- */
+/* BOTTOM TABLE (Account/Subscription) */
+/* ----------------------------------------------------------------------------- */
+#accountTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Keep symmetrical if desired */
+}
+
+#accountTable td {
+    padding: var(--spacing-small);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+#accountTable tr:last-child td {
+    border-bottom: none;
+}
+
+/* Force a symmetrical 50/50 if you prefer
+   Or you can do 30%/70% as well—just tweak widths */
+   #accountTable td:nth-child(1) {
+    width: 50%;
+    text-align: left; /* change from right to left */
+    font-weight: bold;
+    padding-right: var(--spacing-medium);
+}
+#accountTable td:nth-child(2) {
+    width: 50%;
+    text-align: left; /* keep or ensure it's left-aligned */
+    padding-left: var(--spacing-medium);
+}
+
+
+/* ----------------------------------------------------------------------------- */
+/* Specific Elements */
+/* ----------------------------------------------------------------------------- */
 #subscriptionStatus.status-red {
     color: var(--color-status-red);
 }
@@ -191,10 +262,23 @@ main {
     font-size: var(--font-size-small);
 }
 
+.password-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.password-wrapper .show-password {
+    margin-left: var(--spacing-small);
+    font-size: var(--font-size-smaller);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Inputs */
 input[type="email"],
 input[type="text"],
 input[type="password"] {
-    width: 100%;
+    width: 90%;
     padding: var(--spacing-small);
     font-size: var(--font-size-small);
     border: 1px solid var(--color-border);
@@ -202,6 +286,7 @@ input[type="password"] {
     background-color: #2c2c2c;
     color: var(--color-text);
     transition: border 0.3s, background-color 0.3s;
+    margin: 0; /* Remove default margin for clean alignment */
 }
 
 input[type="email"]:focus,
@@ -212,46 +297,7 @@ input[type="password"]:focus {
     background-color: #3a3a3a;
 }
 
-.subscription-edit-box table,
-.password-change-box table {
-    width: 100%;
-}
-
-.subscription-edit-box table td,
-.password-change-box table td {
-    padding: var(--spacing-small) 0;
-}
-
-.subscription-edit-box input[type="email"],
-.subscription-edit-box input[type="text"],
-.subscription-edit-box input[type="password"],
-.password-change-box input[type="password"] {
-    margin-top: var(--spacing-small);
-}
-
-.subscription-edit-box .complete-subscription-btn,
-.password-change-box .change-password-btn {
-    width: 100%;
-    padding: var(--spacing-medium);
-    background-color: var(--color-soft-blue);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-base);
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.complete-subscription-btn:hover,
-.change-password-btn:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-2px);
-}
-
-.complete-subscription-btn:active,
-.change-password-btn:active {
-    transform: translateY(0);
-}
-
+/* Subscription plan checkboxes/radios */
 .subscription-plans {
     display: flex;
     flex-direction: column;
@@ -275,6 +321,7 @@ input[type="password"]:focus {
     cursor: pointer;
 }
 
+/* Feedback messages */
 .feedback-message {
     margin-top: var(--spacing-small);
     padding: var(--spacing-small);
@@ -295,37 +342,45 @@ input[type="password"]:focus {
 }
 
 /* ----------------------------------------------------------------------------- */
-/* Footer Styles */
+/* Buttons */
 /* ----------------------------------------------------------------------------- */
-
-footer.site-footer {
-    background-color: var(--color-background);
-    text-align: center;
-    padding: 15px 0;
-    color: #a0a0a0;
-    border-top: 1px solid var(--color-border);
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    margin-top: var(--spacing-xlarge);
+button,
+.toggle-btn,
+.home-category-item {
+    transition: all 0.3s ease;
 }
 
-/* ----------------------------------------------------------------------------- */
-/* Buttons Styles */
-/* ----------------------------------------------------------------------------- */
-
-button.complete-subscription-btn,
-button.change-password-btn,
-button.save-btn,
-button.cancel-subscription-btn {
-    cursor: pointer;
+.complete-subscription-btn,
+.change-password-btn,
+.login-btn,
+.create-account-btn,
+.logout-button {
+    padding: var(--spacing-small);
+    background-color: var(--color-soft-blue);
+    color: var(--color-white);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-button.complete-subscription-btn,
-button.change-password-btn {
-    width: 100%;
+.complete-subscription-btn:hover,
+.change-password-btn:hover,
+.login-btn:hover,
+.create-account-btn:hover,
+.logout-button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
 }
 
+.complete-subscription-btn:active,
+.change-password-btn:active,
+.login-btn:active,
+.create-account-btn:active,
+.logout-button:active {
+    transform: translateY(0);
+}
+
+/* Additional "Save" or "Cancel" style if needed */
 button.save-btn {
     background-color: var(--color-soft-blue);
     color: var(--color-white);
@@ -352,7 +407,7 @@ button.cancel-subscription-btn {
 }
 
 button.cancel-subscription-btn:hover {
-    background-color: #e74c3c; /* Slightly Lighter Red for Hover */
+    background-color: #e74c3c;
     transform: translateY(-2px);
 }
 
@@ -361,50 +416,23 @@ button.cancel-subscription-btn:active {
 }
 
 /* ----------------------------------------------------------------------------- */
-/* Additional Styles for Enhanced Professionalism */
+/* Footer Styles */
 /* ----------------------------------------------------------------------------- */
-
-/* Smooth transitions for all interactive elements */
-button, input, .toggle-btn, .home-category-item {
-    transition: all 0.3s ease;
-}
-
-/* Enhance table readability */
-.account-container table {
+footer.site-footer {
+    background-color: var(--color-background);
+    text-align: center;
+    padding: 15px 0;
+    color: #a0a0a0;
+    border-top: 1px solid var(--color-border);
+    position: relative;
     width: 100%;
-    border-spacing: 0;
-}
-
-.account-container td {
-    padding: var(--spacing-small);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.account-container tr:last-child td {
-    border-bottom: none;
-}
-
-.account-container tr:hover {
-    background-color: var(--color-hover-bg);
-}
-
-/* Improve form element alignment */
-.account-container input[type="email"],
-.account-container input[type="text"],
-.account-container input[type="password"] {
-    margin-top: 5px;
-}
-
-/* Add focus styles for accessibility */
-input:focus, button:focus, .toggle-btn:focus {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
+    bottom: 0;
+    margin-top: var(--spacing-xlarge);
 }
 
 /* ----------------------------------------------------------------------------- */
-/* Keyframes */
+/* Keyframes (if needed) */
 /* ----------------------------------------------------------------------------- */
-
 @keyframes hover-glow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -414,36 +442,26 @@ input:focus, button:focus, .toggle-btn:focus {
 /* ----------------------------------------------------------------------------- */
 /* Responsive Styles */
 /* ----------------------------------------------------------------------------- */
-
 @media screen and (max-width: 768px) {
-    .account-section {
-        padding: var(--spacing-large);
-        max-width: 95%;
-    }
-
-    .account-container {
+    main {
         padding: var(--spacing-medium);
     }
-
-    .subscription-plans {
-        flex-direction: column;
+    .account-container {
+        padding: var(--spacing-medium);
+        margin-bottom: var(--spacing-medium);
     }
-
-    .subscription-actions {
-        flex-direction: column;
+    #topInfoTable,
+    #accountTable {
+        table-layout: auto;
     }
-
-    .save-btn, .cancel-subscription-btn {
-        font-size: var(--font-size-small);
-        padding: var(--spacing-small);
-    }
-
-    .toggle-group {
-        flex-direction: column;
-    }
-
-    .toggle-btn {
-        width: 100%;
+    /* For mobile, stack columns */
+    #topInfoTable td:nth-child(1),
+    #topInfoTable td:nth-child(2),
+    #accountTable td:nth-child(1),
+    #accountTable td:nth-child(2) {
+        width: auto;
+        display: block;
+        text-align: left; 
     }
 }
 
@@ -461,32 +479,40 @@ input:focus, button:focus, .toggle-btn:focus {
         font-size: 8px;
     }
 
-    .account-container h3 {
-        font-size: 1.4em;
-    }
-
-    .manage-account-for {
-        font-size: 16px;
-    }
-
+    input[type="email"],
     input[type="text"],
-    input[type="password"],
-    input[type="email"] {
+    input[type="password"] {
         font-size: var(--font-size-smaller);
         padding: var(--spacing-small);
     }
 
-    .save-btn, .cancel-subscription-btn {
-        font-size: var(--font-size-smaller);
+    .login-btn,
+    .create-account-btn,
+    .complete-subscription-btn,
+    .change-password-btn,
+    .logout-button {
+        font-size: var(--font-size-small);
         padding: var(--spacing-small);
-    }
-
-    .toggle-btn {
-        font-size: var(--font-size-smaller);
-        padding: var(--spacing-small) 0;
-    }
-
-    .account-section {
-        padding: var(--spacing-medium);
     }
 }
+
+.logout-button {
+    margin-top: 15px; /* Add space between buttons */
+    padding: var(--spacing-small); /* Consistent padding with other buttons */
+    background-color: #c01e1e;
+    color: var(--color-white); /* White text for contrast */
+    border-radius: var(--border-radius-sm); /* Same rounded corners */
+    font-size: var(--font-size-base); /* Consistent font size */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.logout-button:hover {
+    background-color: #ff0000; /* Brighter red on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.logout-button:active {
+    transform: translateY(0); /* Reset on click */
+}
+
