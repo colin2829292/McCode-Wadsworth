@@ -1,0 +1,381 @@
+
+.site-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900; /* Use 900 for maximum boldness */
+    color: #a8d5ba; /* Light green for dark mode */
+    text-align: left;
+    margin-left: 220px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1px #a8d5ba; /* Adds a stroke for extra thickness */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px; /* Add some padding */
+    box-sizing: border-box;
+    background: #000; /* Initial black background */
+}
+
+header hr {
+    border: none; /* Remove default styles */
+    border-top: 1px solid #555; /* Darker color for separation */
+    margin: 0; /* Ensure proper spacing */
+}
+
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #1e1e1e; /* Changed from #121212 to match main background */
+    color: #e0e0e0; /* Light text color */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1; /* Take up remaining space */
+    height: 100%; /* Ensure it fills the viewport height */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #1e1e1e; /* Dark sidebar background */
+    padding: 20px;
+    border-right: 1px solid #333; /* Darker border */
+    box-sizing: border-box;
+    height: 100vh; /* Make sidebar full viewport height */
+    position: fixed; /* Fix sidebar to the side */
+    top: 0; /* Start at the very top */
+    left: 0;
+    /* overflow-y: auto; */ /* Removed inner scroll */
+    /* Optional: Add box-shadow for better separation */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #e0e0e0; /* Light text color */
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 10px;
+    border: 1px solid #444; /* Darker border for each link */
+}
+
+.sidebar ul li a:hover {
+    background-color: #333; /* Darker hover background */
+    color: #ffffff; /* Light text on hover */
+    border: 1px solid #444; /* Darker border for each link */
+    border-color: #ffe602; /* Change border color on hover */
+}
+
+.sidebar ul li a.active {
+    font-weight: bold;
+    color: #90caf9; /* Light blue for active link */
+    background-color: #333f52; /* Slightly colored background */
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark main background */
+    margin-left: 200px; /* Same as sidebar width to prevent overlap */
+    /* overflow-y: auto; */ /* Removed inner scroll */
+}
+
+.main-title {
+    text-align: center;
+    font-size: 28px;
+    color: #90caf9; /* Light blue */
+    margin-bottom: 40px;
+}
+
+.category-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333; /* Darker border */
+}
+
+.category-section h2 {
+    font-size: 40px;
+    margin-top: 0;
+    color: #e0e0e0; /* Light text */
+    border-left: 5px solid #90caf9; /* Light blue accent */
+    padding-left: 10px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.category-item {
+    display: block; /* Make the entire item clickable */
+    position: relative;
+    background-color: #2c2c2c; /* Dark item background */
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #444; /* Darker border */
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.1s ease, background-color 0.1s;
+    width: 80px; /* Set a fixed width */
+    height: 80px; /* Match the height to the width to make it square */
+}
+
+.category-item:hover {
+    background-color: rgba(255, 223, 0, 0.2); /* Faint yellow with 20% opacity */
+}
+
+.category-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+}
+
+.category-link:hover {
+    text-decoration: none; /* Prevent underline on hover */
+}
+
+.category-item h3 {
+    margin: 0;
+    font-size: 10px;
+    color: #e0e0e0; /* Light text */
+}
+
+.item-content {
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100%; /* Occupy full height of the parent */
+    padding: 10px; /* Even padding for balanced spacing */
+    box-sizing: border-box; /* Include padding within size */
+    text-align: center; /* Center text horizontally */
+    /* overflow: hidden; */ /* Optional: Prevent content overflow */
+}
+
+@media screen and (max-width: 1200px) {
+    .item-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .item-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333; /* Darker border */
+        height: auto;
+        background-color: #1e1e1e; /* Ensure sidebar remains dark */
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .item-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* Adjust width for better visibility */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark gray for the thumb */
+    border-radius: 4px; /* Rounded corners for a modern look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777; /* Slightly lighter gray on hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1e1e1e; /* Match sidebar and main content background */
+}
+
+html {
+    scrollbar-color: #555 #1e1e1e; /* Thumb color and track color */
+    scrollbar-width: thin; /* Make the scrollbar thinner */
+}
+
+/* Container for categories */
+.categories-container {
+    display: flex; /* Align categories side by side */
+    gap: 20px; /* Space between boxes */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: flex-start; /* Align to the left */
+}
+
+/* Each category group (header + box) */
+.category-group {
+    width: 200px; /* Fixed width for consistency */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Styling for the group headers */
+.category-header {
+    font-size: 12px;
+    color: #ffffff; /* Light blue to match theme */
+    margin: 10px 0 5px; /* Space around the header */
+    border-left: 4px solid #90caf9; /* Accent border */
+    padding-left: 8px; /* Space between text and border */
+    text-align: left; /* Center header text */
+}
+
+/*%%%%%%%%%%%*/
+
+/* Scrollable box styling */
+.scrollable-box {
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Vertical scrolling */
+    background-color: #2c2c2c; /* Dark box background */
+    border: 1px solid #444; /* Border for separation */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 12px; /* Small font to match box size */
+}
+
+/* Styling for the list inside the box */
+.scrollable-box ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable-box ul li {
+    margin-bottom: 5px; /* Space between items */
+}
+
+.scrollable-box ul li a {
+    text-decoration: none; /* Remove underline */
+    color: #e0e0e0; /* Default light text color */
+    display: block; /* Makes the link take up the full width */
+    padding: 5px 10px; /* Add padding for spacing */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+}
+
+.scrollable-box ul li a:hover {
+    background-color: #444; /* Darker background on hover */
+    color: #fff; /* White text on hover */
+}
+
+/*%%%%%%%%%%%*/
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .categories-container {
+        flex-direction: column; /* Stack vertically on small screens */
+        gap: 15px;
+    }
+
+    .category-group {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+.bottom-section {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: flex-start; /* Align columns to the left */
+    gap: 20px; /* Add spacing between columns */
+    width: 100%; /* Full width */
+    margin-top: -30px; /* Optional: Adjust spacing above */
+    color: #e0e0e0; /* Light text color */
+    text-align: left; /* Align text inside columns to the left */
+    background: none; /* Remove background color */
+    box-shadow: none; /* Remove the shadow */
+    padding: 20px 0; /* Optional: Add padding for spacing */
+}
+
+.bottom-section .column {
+    flex: 0 0 auto; /* Prevent columns from stretching */
+    width: 200px; /* Set a fixed width for each column */
+    padding: 10px; /* Add padding inside each column */
+    box-sizing: border-box; /* Include padding in width calculation */
+    border-right: 1px solid #555; /* Add border between columns */
+}
+
+/* Remove border from the last column */
+.bottom-section .column:last-child {
+    border-right: none;
+}
+
+.bottom-section .column h3 {
+    margin: 0 0 10px; /* Add spacing below the header */
+    font-size: 16px; /* Header size */
+    color: #ffcc00; /* Light blue color */
+}
+
+.bottom-section .column ul {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.bottom-section .column ul li {
+    margin-bottom: 5px; /* Add spacing between items */
+}
+
+.bottom-section .column ul li a {
+    color: #e0e0e0; /* Light text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Link font size */
+}
+
+.bottom-section .column ul li a:hover {
+    color: #5100ff; /* Change color on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+footer.site-footer {
+    text-align: center;
+    background-color: #1e1e1e; /* Same as the rest of the theme */
+    color: #e0e0e0;
+    padding: 10px 0;
+    font-size: 14px;
+    margin-top: 20px; /* Space above the footer */
+    border-top: 1px solid #444; /* Optional: separates footer visually */
+}
+
+

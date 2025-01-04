@@ -1,0 +1,98 @@
+
+/* Login button in the header */
+.login-wrapper {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    display: flex; /* Align elements horizontally */
+    align-items: center; /* Center vertically */
+    gap: -10px; /* Space between elements */
+}
+
+/* Add or adjust these styles in your CSS file */
+
+.login-wrapper span {
+    margin: 0 -2px; /* Adjust left and right spacing */
+    padding: 0; /* Ensure no extra padding */
+    font-size: 14px; /* Optional: Adjust font size */
+    display: inline-block; /* Ensure it aligns properly */
+    vertical-align: middle; /* Align with buttons */
+}
+
+/* If needed, adjust spacing for adjacent buttons */
+.login-wrapper button {
+    margin-left: 5px; /* Space between the text and the button */
+}
+
+/* Style for the Log in button */
+.login-button {
+    width: 70px; /* Square dimensions for the button */
+    height: 70px;
+    background: linear-gradient(45deg, #4b3f72, #6a5acd, #87ceeb); /* Soft purple to sky blue gradient */
+    background-size: 200% 200%; /* Prepares for animation */
+    border: 2px solid #6a5acd; /* Medium slate blue border for subtle elegance */
+    border-radius: 8px; /* Slightly rounded corners */
+    transition: transform 0.1s ease, background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    cursor: pointer; /* Makes it clear that the box is clickable */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(106, 90, 205, 0.6); /* Subtle purple-blue glow */
+    font-size: 14px;
+    color: #ffffff; /* Clean white text for contrast */
+    font-weight: bold;
+    text-decoration: none; /* Ensures no underline */
+}
+
+/* Hover effect for the Log in button */
+.login-button:hover {
+    background: linear-gradient(45deg, #6a5acd, #87ceeb, #b0e0e6); /* Brighter purple-blue gradient */
+    border-color: #87ceeb; /* Sky blue border */
+    box-shadow: 0 6px 12px rgba(135, 206, 235, 0.7); /* Enhanced glowing effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    animation: hover-glow 4s ease infinite; /* Subtle continuous gradient animation */
+}
+
+/* Active (click) effect for the Log in button */
+.login-button:active {
+    transform: scale(0.95); /* Slight scale down for click effect */
+}
+
+/* Optional hover-glow animation */
+@keyframes hover-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logout-button {
+    background-color: #a02020; /* Red color to signify logout */
+    color: white;
+    border: none;
+    padding: 6px 12px; /* Match padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 8px; /* Match font size */
+    font-weight: bold; /* Match font weight */
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #ff0000; /* Brighter red on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
